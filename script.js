@@ -11,6 +11,10 @@ function highlightHandler(e) {
     translated = false;
     if (document.getElementById('translatedText')) document.getElementById('translatedText').remove();
   }
+  if (e.target.className !== "spn") {
+    button = false;
+    if (document.getElementById('yusunglee')) document.getElementById('yusunglee').remove();
+  }
   // get the highlighted text
   let text = (document.all) ? document.selection.createRange().text : document.getSelection();
   // check if anything is actually highlighted
@@ -53,6 +57,9 @@ function translateWithENEN() {
   div.style.position = "absolute"
   div.style.top = tempE.pageY + "px";
   div.style.left = tempE.pageX + "px";
+  div.style.padding = "20px"
+  div.style.border = "1px solid grey"
+  div.style.backgroundColor = "White"
   if (!translated) {
     document.body.appendChild(div);
     translated = true;
