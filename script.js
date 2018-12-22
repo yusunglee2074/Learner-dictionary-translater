@@ -18,7 +18,7 @@ function highlightHandler(e) {
   // get the highlighted text
   let text = (document.all) ? document.selection.createRange().text : document.getSelection();
   // check if anything is actually highlighted
-  if(text.toString() !== '') {
+  if(text.toString() !== '' && text.toString().length > 2) {
     /*
     // delete button and translated div
     if (document.getElementById('yusunglee')) document.getElementById('yusunglee').remove();
