@@ -31,7 +31,7 @@ if (!document.all) document.captureEvents(Event.MOUSEUP);
 function doStuff(text, e) {
   tempE = e;
   let div = document.createElement('div');
-  div.innerHTML = '<Button onClick="translateWithENEN()"><span style="font-size: 20px">번역</span></Button>';
+  div.innerHTML = '<Button class="btn" onClick="translateWithENEN()"><span class="spn" style="font-size: 20px">번역</span></Button>';
   div.id = "yusunglee"
   div.class = "yusunglee"
   div.style.position = "absolute"
