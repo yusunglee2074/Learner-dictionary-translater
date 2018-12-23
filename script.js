@@ -67,7 +67,7 @@ function translateWithENEN() {
       let soup = new Jssoup(xhr.responseText)
       button = false;
       let div = document.createElement('div');
-      div.innerHTML = `<span class="yusunglee" style="font-size: 20px">번역내용이 쭉 나올 것입니다. 하하하하하</span>`;
+      div.innerHTML = soup.findAll('div', 'sblocks')
       div.id = "translatedText"
       div.class = "yusunglee"
       div.style.position = "absolute"
