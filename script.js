@@ -1,6 +1,9 @@
+import Jssoup from 'jssoup'
 // for status management button and translatedText
 let button = false;
 let translated = false;
+
+let searchWord;
 
 // for share X, Y posiiton with 2 func
 let tempE;
@@ -25,17 +28,19 @@ function highlightHandler(e) {
     if (document.getElementById('translatedText')) document.getElementById('translatedText').remove();
     */
     // we've got a highlight, now do your stuff here
-    doStuff(text, e);
+    searchWord = text;
+    doStuff(e);
   }
 }
 
 document.onmouseup = highlightHandler;
 if (!document.all) document.captureEvents(Event.MOUSEUP);
 
-function doStuff(text, e) {
+function doStuff(e) {
   tempE = e;
   let div = document.createElement('div');
-  div.innerHTML = '<Button class="btn" onClick="translateWithENEN()"><span class="spn" style="font-size: 20px">번역</span></Button>';
+  div.innerHTML = '<Button class="btn"><span class="spn" style="font-size: 20px">번역</span></Button>';
+  div.addEventListener('click', translateWithENEN);
   div.id = "yusunglee"
   div.class = "yusunglee"
   div.style.position = "absolute"
@@ -48,20 +53,47 @@ function doStuff(text, e) {
 }
 
 function translateWithENEN() {
-  document.getElementById('yusunglee').remove();
-  button = false;
-  let div = document.createElement('div');
-  div.innerHTML = `<span class="yusunglee" style="font-size: 20px">번역내용이 쭉 나올 것입니다. 하하하하하</span>`;
-  div.id = "translatedText"
-  div.class = "yusunglee"
-  div.style.position = "absolute"
-  div.style.top = tempE.pageY + "px";
-  div.style.left = tempE.pageX + "px";
-  div.style.padding = "20px"
-  div.style.border = "1px solid grey"
-  div.style.backgroundColor = "White"
-  if (!translated) {
-    document.body.appendChild(div);
-    translated = true;
-  }
+
+  // Set up our HTTP request
+  var xhr = new XMLHttpRequest();
+
+  // Setup our listener to process completed requests
+  xhr.onload = function () {
+
+    // Process our return data
+    if (xhr.status >= 200 && xhr.status < 300) {
+      // What do when the request is successful
+      document.getElementById('yusunglee').remove();
+      let soup = new Jssoup(xhr.responseText)
+      button = false;
+      let div = document.createElement('div');
+      div.innerHTML = `<span class="yusunglee" style="font-size: 20px">번역내용이 쭉 나올 것입니다. 하하하하하</span>`;
+      div.id = "translatedText"
+      div.class = "yusunglee"
+      div.style.position = "absolute"
+      div.style.top = tempE.pageY + "px";
+      div.style.left = tempE.pageX + "px";
+      div.style.padding = "20px"
+      div.style.border = "1px solid grey"
+      div.style.backgroundColor = "White"
+      if (!translated) {
+        document.body.appendChild(div);
+        translated = true;
+      }
+    } else {
+      // What do when the request fails
+      console.log('The request failed!');
+    }
+
+    // Code that should run regardless of the request status
+    console.log('This always runs...');
+  };
+
+  // Create and send a GET request
+  // The first argument is the post type (GET, POST, PUT, DELETE, etc.)
+  // The second argument is the endpoint URL
+  xhr.open('GET', `http://cors-anywhere.herokuapp.com/learnersdictionary.com/definition/${searchWord}`);
+  xhr.send();
+
 }
+
