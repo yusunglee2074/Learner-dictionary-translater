@@ -92,7 +92,7 @@ function translateWithENEN() {
   // Create and send a GET request
   // The first argument is the post type (GET, POST, PUT, DELETE, etc.)
   // The second argument is the endpoint URL
-  xhr.open('GET', `http://cors-anywhere.herokuapp.com/learnersdictionary.com/definition/${searchWord}`);
+  xhr.open('GET', `https://cors-anywhere.herokuapp.com/learnersdictionary.com/definition/${searchWord}`);
   xhr.send();
 
 }
