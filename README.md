@@ -2,7 +2,7 @@
 🚀 Chrome extension to translate with Eng-Eng learner's dictionary
 
 
-![영영사전](https://imgur.com/a/PoFt12n)
+![영영사전](https://s2.gifyu.com/images/Kapture-2018-12-23-at-15.25.49.gif)
 
 
 영영사전을 조금 더 쉽게 풀어쓴 Learner's 영영사전을 이용한 크롬 확장 프로그램입니다.
