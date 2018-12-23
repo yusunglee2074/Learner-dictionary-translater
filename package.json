@@ -1,0 +1,23 @@
+{
+  "name": "enenlearner",
+  "version": "1.0.0",
+  "description": "🚀 Chrome extension to translate with Eng-Eng learner's dictionary",
+  "main": "contentscript.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yusunglee2074/Learner-dictionary-translater.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yusunglee2074/Learner-dictionary-translater/issues"
+  },
+  "homepage": "https://github.com/yusunglee2074/Learner-dictionary-translater#readme",
+  "dependencies": {
+    "jssoup": "0.0.10",
+    "webpack": "^4.28.2"
+  }
+}
