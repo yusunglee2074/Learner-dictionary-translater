@@ -11,3 +11,5 @@
 
 ## 사용법
 release 들어가서 zip을 다운받은 후 크롬 메뉴 -> 메뉴 더보기 -> 확장프로그램에서 설치 후 새로고침 후 사용하시면 됩니다.
+
+사전 소스 출처 https://www.oxfordlearnersdictionaries.com/
