@@ -18,6 +18,6 @@
   "homepage": "https://github.com/yusunglee2074/Learner-dictionary-translater#readme",
   "dependencies": {
     "jssoup": "0.0.10",
-    "webpack": "^4.28.2"
+    "webpack": "^5.75.0"
   }
 }
